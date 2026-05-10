@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 import scipy.sparse as sp
 import streamlit as st
-import joblib
+
 from sklearn.feature_extraction.text import HashingVectorizer
 
 # All paths resolved relative to this file — works on any server, any CWD
