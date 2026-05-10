@@ -17,7 +17,7 @@ from sklearn.feature_extraction.text import HashingVectorizer
 
 # All paths resolved relative to this file — works on any server, any CWD
 HERE = Path(__file__).parent
-ARTIFACTS = HERE / "artifacts"
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 #  Page config
@@ -33,9 +33,9 @@ st.set_page_config(
 # ─────────────────────────────────────────────────────────────────────────────
 @st.cache_resource
 def load_all():
-    cfg     = joblib.load(ARTIFACTS / "hashing_config.joblib")
-    sgd_p   = joblib.load(ARTIFACTS / "sgd_params.joblib")
-    rf_p    = joblib.load(ARTIFACTS / "rf_params.joblib")
+    cfg     = joblib.load( "hashing_config.joblib")
+    sgd_p   = joblib.load( "sgd_params.joblib")
+    rf_p    = joblib.load( "rf_params.joblib")
     hv_cfg  = cfg["hv_params"]
     hv = HashingVectorizer(
         n_features   = hv_cfg["n_features"],
