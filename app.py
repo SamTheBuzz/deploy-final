@@ -8,16 +8,11 @@ Works on any Python version, any sklearn version, forever.
 """
 
 import math
-from pathlib import Path
 import numpy as np
 import scipy.sparse as sp
 import streamlit as st
-
+import joblib
 from sklearn.feature_extraction.text import HashingVectorizer
-
-# All paths resolved relative to this file — works on any server, any CWD
-HERE = Path(__file__).parent
-
 
 # ─────────────────────────────────────────────────────────────────────────────
 #  Page config
@@ -33,9 +28,9 @@ st.set_page_config(
 # ─────────────────────────────────────────────────────────────────────────────
 @st.cache_resource
 def load_all():
-    cfg     = joblib.load( "hashing_config.joblib")
-    sgd_p   = joblib.load( "sgd_params.joblib")
-    rf_p    = joblib.load( "rf_params.joblib")
+    cfg     = joblib.load("artifacts/hashing_config.joblib")
+    sgd_p   = joblib.load("artifacts/sgd_params.joblib")
+    rf_p    = joblib.load("artifacts/rf_params.joblib")
     hv_cfg  = cfg["hv_params"]
     hv = HashingVectorizer(
         n_features   = hv_cfg["n_features"],
@@ -267,3 +262,4 @@ with st.sidebar:
         "- `service::com.package.ServiceName`\n"
         "- `receiver::com.package.ReceiverName`"
     )
+
