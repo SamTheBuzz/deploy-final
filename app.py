@@ -14,10 +14,6 @@ import streamlit as st
 import joblib
 from sklearn.feature_extraction.text import HashingVectorizer
 
-from pathlib import Path
-HERE = Path(__file__).parent          # always the folder containing app.py
-ARTIFACTS = HERE / "artifacts"
-
 # ─────────────────────────────────────────────────────────────────────────────
 #  Page config
 # ─────────────────────────────────────────────────────────────────────────────
